@@ -1,0 +1,59 @@
+{
+  "name": "ev",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "http://localhost:3000/",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-regular-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.18",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.2.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^0.27.2",
+    "bootstrap": "^5.3.5",
+    "framer-motion": "^12.8.0",
+    "google-map-react": "^2.2.1",
+    "gsap": "^3.13.0",
+    "mapbox-gl": "^2.8.2",
+    "react": "^18.1.0",
+    "react-bootstrap": "^2.10.9",
+    "react-dom": "^18.1.0",
+    "react-icons": "^4.12.0",
+    "react-leaflet": "^4.0.0",
+    "react-lottie": "^1.2.10",
+    "react-map-gl": "^7.0.15",
+    "react-multiselect-dropdown-bootstrap": "^1.1.0",
+    "react-router-dom": "^6.30.0",
+    "react-scripts": "5.0.1",
+    "react-speech-kit": "^3.0.1",
+    "react-tilt": "^1.0.2",
+    "react-toastify": "^11.0.5",
+    "react-tsparticles": "^2.12.2",
+    "socket.io-client": "^4.8.1",
+    "three": "^0.176.0",
+    "tsparticles": "^3.8.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": [
+    "defaults",
+    "not ie 11"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47"
+  }
+}

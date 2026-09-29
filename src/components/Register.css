@@ -1,0 +1,408 @@
+/* Register.css */
+.register-container {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #0a0a1a, #1a0033, #0a0a1a);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bgPulse 15s infinite alternate;
+}
+
+@keyframes bgPulse {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Road effect */
+.register-container::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(to top, rgba(0, 255, 204, 0.2), transparent);
+  background-size: 2000px 200px;
+  animation: roadMove 10s linear infinite;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+@keyframes roadMove {
+  0% { background-position: 0 0; }
+  100% { background-position: -2000px 0; }
+}
+
+/* Car silhouette (CSS-based) */
+.car-silhouette {
+  position: absolute;
+  bottom: 50px;
+  left: 10%;
+  width: 300px;
+  height: 100px;
+  background: linear-gradient(45deg, #00ffcc, #ff00ff);
+  clip-path: polygon(0% 70%, 10% 50%, 80% 50%, 100% 70%, 90% 100%, 10% 100%);
+  animation: carDrive 15s linear infinite;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+@keyframes carDrive {
+  0% { transform: translateX(-10%) scale(1); }
+  50% { transform: translateX(100vw) scale(1.1); }
+  100% { transform: translateX(-10%) scale(1); }
+}
+
+.register-content {
+  position: relative;
+  z-index: 1;
+}
+
+.holographic-card {
+  position: relative;
+  background: rgba(10, 10, 26, 0.9);
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: 0 0 30px rgba(0, 255, 204, 0.5), 0 0 60px rgba(255, 0, 255, 0.3);
+  border: 1px solid #00ffcc;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.card-glow {
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(circle, rgba(0, 255, 204, 0.3) 0%, transparent 70%);
+  opacity: 0.5;
+  animation: glowPulse 8s infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes glowPulse {
+  0% { opacity: 0.3; transform: scale(1); }
+  100% { opacity: 0.7; transform: scale(1.1); }
+}
+
+.holographic-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.holo-orb {
+  position: absolute;
+  background: radial-gradient(circle, #00ffcc, #ff00ff, transparent);
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: orbit 20s infinite linear;
+}
+
+.orb-1 {
+  width: 120px;
+  height: 120px;
+  top: 10%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 150px;
+  height: 150px;
+  top: 50%;
+  left: 70%;
+  animation-delay: 2s;
+}
+
+.orb-3 {
+  width: 100px;
+  height: 100px;
+  top: 80%;
+  left: 25%;
+  animation-delay: 4s;
+}
+
+@keyframes orbit {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(50px, -50px) rotate(360deg); }
+}
+
+.car-hologram {
+  width: 300px;
+  height: 300px;
+  margin: 1rem auto;
+  filter: drop-shadow(0 0 20px #00ffcc);
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-icon {
+  font-size: 3rem;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffcc;
+}
+
+.neon-text {
+  color: #00ffcc;
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffff, 0 0 30px #ff00ff;
+}
+
+.neon-text span.neon-glow {
+  color: #ff00ff;
+  animation: neonBlink 1.5s infinite alternate;
+}
+
+@keyframes neonBlink {
+  0% { text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff; }
+  100% { text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff; }
+}
+
+.card-subtitle {
+  color: #00ffff;
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+  text-shadow: 0 0 5px #00ffff;
+}
+
+.neon-subtitle {
+  animation: subtitleFade 3s infinite alternate;
+}
+
+@keyframes subtitleFade {
+  0% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.form-column {
+  position: relative;
+}
+
+.form-section-title {
+  color: #00ffcc;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px #00ffcc;
+}
+
+.neon-title {
+  animation: titlePulse 2s infinite alternate;
+}
+
+@keyframes titlePulse {
+  0% { text-shadow: 0 0 10px #00ffcc; }
+  100% { text-shadow: 0 0 20px #00ffcc, 0 0 30px #00ffff; }
+}
+
+.form-field-container {
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.neon-label {
+  color: #00ffff;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 5px #00ffff;
+}
+
+.form-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #00ffcc;
+  background: rgba(0, 0, 0, 0.5);
+  color: #00ffcc;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  box-shadow: inset 0 0 10px rgba(0, 255, 204, 0.2);
+  transition: all 0.3s ease;
+}
+
+.form-field:focus {
+  outline: none;
+  box-shadow: 0 0 20px #00ffcc, 0 0 40px #ff00ff;
+  transform: translateY(-2px);
+  background: rgba(0, 255, 204, 0.1);
+}
+
+.form-field::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 204, 0.3), transparent);
+  animation: scan 5s infinite;
+}
+
+@keyframes scan {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
+}
+
+.submit-container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.submit-button {
+  background: linear-gradient(45deg, #00ffcc, #ff00ff, #00ffff);
+  color: #0a0a1a;
+  font-weight: bold;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 15px #00ffcc, 0 0 30px #ff00ff;
+  transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px #00ffcc, 0 0 60px #ff00ff;
+}
+
+.submit-button::before {
+  content: "ACTIVATE";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #0a0a1a;
+  font-weight: bold;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.submit-button:hover::before {
+  opacity: 1;
+}
+
+.submit-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0, 255, 204, 0.5), transparent);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0); opacity: 0.5; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+.status-message {
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.status-message.error {
+  background: rgba(255, 0, 0, 0.2);
+  box-shadow: 0 0 10px #ff0000;
+}
+
+.neon-error {
+  color: #ff0000;
+  text-shadow: 0 0 5px #ff0000;
+}
+
+.status-message.success {
+  background: rgba(0, 255, 0, 0.2);
+  box-shadow: 0 0 10px #00ff00;
+}
+
+.neon-success {
+  color: #00ff00;
+  text-shadow: 0 0 5px #00ff00;
+}
+
+.login-redirect {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.login-link {
+  color: #ff00ff;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.neon-link:hover {
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #ff00ff;
+}
+
+.neon-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ff00ff;
+  transition: width 0.3s ease;
+}
+
+.neon-link:hover::after {
+  width: 100%;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .car-hologram {
+    width: 200px;
+    height: 200px;
+  }
+  .car-silhouette {
+    width: 150px;
+    height: 50px;
+  }
+}

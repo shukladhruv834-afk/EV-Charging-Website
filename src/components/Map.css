@@ -1,0 +1,523 @@
+/* 𝗡𝗘𝗫𝗧-𝗚𝗘𝗡 𝗠𝗔𝗣.𝗖𝗦𝗦 */
+/* 𝗛𝗼𝗹𝗼𝗴𝗿𝗮𝗽𝗵𝗶𝗰 𝗤𝘂𝗮𝗻𝘁𝘂𝗺 𝗜𝗻𝘁𝗲𝗿𝗳𝗮𝗰𝗲 */
+
+.map-container {
+  width: 100%;
+  height: 92vh;
+  border-radius: 28px;
+  overflow: hidden;
+  position: relative;
+  background: 
+      radial-gradient(ellipse at center, 
+          rgba(0,15,20,0.98) 0%, 
+          rgba(0,5,10,1) 100%),
+      linear-gradient(135deg, 
+          rgba(0,255,224,0.03) 0%, 
+          transparent 25%,
+          rgba(0,200,255,0.03) 50%,
+          transparent 75%,
+          rgba(0,255,224,0.03) 100%);
+  box-shadow:
+      0 0 40px rgba(0,255,224,0.7),
+      0 0 80px rgba(0,150,255,0.5),
+      inset 0 0 30px rgba(0,255,224,0.4),
+      0 0 150px rgba(0,100,255,0.2);
+  border: 1px solid rgba(0,255,224,0.6);
+  animation:
+      quantum-pulse 6s infinite alternate,
+      hologram-scan 12s linear infinite;
+  transform-style: preserve-3d;
+  perspective: 1200px;
+  backdrop-filter: blur(2px);
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 1;
+}
+
+/* 𝗤𝘂𝗮𝗻𝘁𝘂𝗺 𝗚𝗿𝗶𝗱 𝗦𝘆𝘀𝘁𝗲𝗺 */
+.map-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+      linear-gradient(rgba(0,255,224,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,255,224,0.05) 1px, transparent 1px),
+      radial-gradient(circle at center, transparent 95%, rgba(0,255,224,0.1) 100%);
+  background-size: 
+      50px 50px,
+      50px 50px,
+      100% 100%;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.4;
+}
+
+/* 𝗡𝗲𝘂𝗿𝗮𝗼𝗿𝗽𝗵𝗶𝗰 𝗣𝗮𝗿𝘁𝗶𝗰𝗹𝗲 𝗙𝗶𝗲𝗹𝗱 */
+.map-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+      radial-gradient(circle at 20% 30%, rgba(0,255,224,0.03) 0%, transparent 15%),
+      radial-gradient(circle at 80% 70%, rgba(0,200,255,0.03) 0%, transparent 15%),
+      radial-gradient(circle at 50% 20%, rgba(0,150,255,0.02) 0%, transparent 20%);
+  animation: 
+      particle-float 90s infinite linear,
+      energy-wave 25s infinite alternate;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* 𝗗𝘆𝗻𝗮𝗺𝗶𝗰 𝗘𝗻𝗲𝗿𝗴𝘆 𝗡𝗼𝗱𝗲𝘀 */
+.quantum-node {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  background: 
+      radial-gradient(circle, 
+          rgba(0,255,224,0.8) 0%, 
+          rgba(0,180,255,0.6) 50%, 
+          transparent 70%);
+  border-radius: 50%;
+  box-shadow:
+      0 0 25px rgba(0,255,224,0.7),
+      0 0 50px rgba(0,150,255,0.5),
+      inset 0 0 15px rgba(255,255,255,0.2);
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 10;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: 
+      node-pulse 3s infinite alternate,
+      node-float 6s infinite ease-in-out;
+}
+
+.quantum-node::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  border: 2px solid rgba(0,255,224,0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: node-ripple 4s infinite;
+  z-index: -1;
+}
+
+.quantum-node::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 0 5px rgba(0,255,224,0.8));
+}
+
+.quantum-node:hover {
+  transform: translate(-50%, -50%) scale(1.3);
+  filter: hue-rotate(30deg) brightness(1.2);
+  animation: 
+      node-pulse 1.5s infinite alternate,
+      node-float 4s infinite ease-in-out;
+}
+
+/* 𝗡𝗲𝘅𝘂𝘀 𝗖𝗼𝗻𝘁𝗿𝗼𝗹 𝗣𝗮𝗻𝗲𝗹 */
+.nexus-control {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%) translateZ(30px);
+  display: flex;
+  gap: 20px;
+  z-index: 20;
+  filter: 
+      drop-shadow(0 0 15px rgba(0,255,224,0.8))
+      drop-shadow(0 0 30px rgba(0,150,255,0.5));
+}
+
+.nexus-btn {
+  background: 
+      linear-gradient(145deg, 
+          rgba(0,30,40,0.95), 
+          rgba(0,15,25,0.95));
+  color: #00ffe0;
+  padding: 14px 28px;
+  border-radius: 16px;
+  border: none;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow:
+      0 8px 32px rgba(0,0,0,0.4),
+      0 0 20px rgba(0,255,224,0.6),
+      inset 0 2px 2px rgba(255,255,255,0.1);
+  transform-style: preserve-3d;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.nexus-btn::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: 
+      linear-gradient(
+          to bottom right,
+          transparent 45%,
+          rgba(0,255,224,0.15) 50%,
+          transparent 55%
+      );
+  transform: rotate(30deg);
+  animation: nexus-shine 4s infinite;
+  z-index: -1;
+}
+
+.nexus-btn:hover {
+  transform: translateY(-8px) scale(1.08) translateZ(15px);
+  box-shadow:
+      0 12px 40px rgba(0,0,0,0.6),
+      0 0 30px rgba(0,255,224,0.8),
+      inset 0 2px 4px rgba(255,255,255,0.2);
+  background: 
+      linear-gradient(145deg, 
+          rgba(0,50,60,0.95), 
+          rgba(0,25,35,0.95));
+}
+
+/* 𝗛𝗼𝗹𝗼𝗜𝗻𝗳𝗼 𝗗𝗶𝘀𝗽𝗹𝗮𝘆 */
+.holo-info {
+  position: absolute;
+  background: 
+      linear-gradient(145deg, 
+          rgba(0,25,35,0.97), 
+          rgba(0,15,25,0.97));
+  border-radius: 20px;
+  padding: 24px;
+  color: white;
+  font-size: 15px;
+  line-height: 1.6;
+  z-index: 30;
+  box-shadow:
+      0 15px 50px rgba(0,0,0,0.7),
+      0 0 30px rgba(0,255,224,0.7),
+      inset 0 0 20px rgba(0,255,224,0.3);
+  border: 1px solid rgba(0,255,224,0.5);
+  backdrop-filter: blur(12px);
+  transform: scale(0.95) translateY(10px);
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  max-width: 320px;
+  pointer-events: none;
+}
+
+.holo-info.active {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+.holo-info::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, 
+      rgba(0,255,224,0.8),
+      rgba(0,180,255,0.8),
+      rgba(0,255,224,0.8));
+  border-radius: 20px 20px 0 0;
+}
+
+.holo-info::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 10px 8px 0;
+  border-style: solid;
+  border-color: rgba(0,255,224,0.6) transparent transparent;
+}
+
+/* 𝗔𝗻𝗶𝗺𝗮𝘁𝗶𝗼𝗻𝘀 */
+@keyframes quantum-pulse {
+  0%, 100% {
+      box-shadow:
+          0 0 40px rgba(0,255,224,0.7),
+          0 0 80px rgba(0,150,255,0.5),
+          inset 0 0 30px rgba(0,255,224,0.4),
+          0 0 150px rgba(0,100,255,0.2);
+  }
+  50% {
+      box-shadow:
+          0 0 60px rgba(0,255,224,0.9),
+          0 0 120px rgba(0,180,255,0.7),
+          inset 0 0 50px rgba(0,255,224,0.6),
+          0 0 200px rgba(0,120,255,0.3);
+  }
+}
+
+@keyframes hologram-scan {
+  0% {
+      background-position: 0 0;
+  }
+  100% {
+      background-position: 0 120vh;
+  }
+}
+
+@keyframes particle-float {
+  0% {
+      transform: translate(0, 0);
+  }
+  25% {
+      transform: translate(-5%, -2%);
+  }
+  50% {
+      transform: translate(0%, -5%);
+  }
+  75% {
+      transform: translate(5%, -2%);
+  }
+  100% {
+      transform: translate(0, 0);
+  }
+}
+
+@keyframes energy-wave {
+  0%, 100% {
+      background-position: 0% 0%;
+      opacity: 0.1;
+  }
+  50% {
+      background-position: 100% 100%;
+      opacity: 0.3;
+  }
+}
+
+@keyframes node-pulse {
+  0% {
+      transform: translate(-50%, -50%) scale(1);
+      box-shadow: 
+          0 0 25px rgba(0,255,224,0.7),
+          0 0 50px rgba(0,150,255,0.5);
+  }
+  100% {
+      transform: translate(-50%, -50%) scale(1.15);
+      box-shadow: 
+          0 0 35px rgba(0,255,224,0.9),
+          0 0 70px rgba(0,180,255,0.7);
+  }
+}
+
+@keyframes node-float {
+  0%, 100% {
+      transform: translate(-50%, -50%) translateY(0);
+  }
+  50% {
+      transform: translate(-50%, -50%) translateY(-10px);
+  }
+}
+
+@keyframes node-ripple {
+  0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.8;
+  }
+  100% {
+      transform: translate(-50%, -50%) scale(3);
+      opacity: 0;
+  }
+}
+
+@keyframes nexus-shine {
+  0% {
+      transform: rotate(30deg) translate(-30%, -30%);
+  }
+  100% {
+      transform: rotate(30deg) translate(30%, 30%);
+  }
+}
+
+/* 𝗛𝗼𝗹𝗼𝗚𝗿𝗶𝗱 𝗢𝘃𝗲𝗿𝗹𝗮𝘆 */
+.hologrid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+      linear-gradient(rgba(0,255,224,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,255,224,0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  background-position: center center;
+  pointer-events: none;
+  z-index: 4;
+  opacity: 0.3;
+  animation: grid-pulse 8s infinite alternate;
+}
+
+@keyframes grid-pulse {
+  0%, 100% {
+      opacity: 0.2;
+  }
+  50% {
+      opacity: 0.4;
+  }
+}
+
+/* 𝗗𝗮𝘁𝗮 𝗦𝘁𝗿𝗲𝗮𝗺𝘀 */
+.data-stream {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.data-path {
+  stroke: rgba(0,255,224,0.6);
+  stroke-width: 2px;
+  stroke-dasharray: 10, 5;
+  fill: none;
+  animation: data-flow 15s linear infinite;
+  filter: drop-shadow(0 0 5px rgba(0,255,224,0.5));
+}
+
+@keyframes data-flow {
+  0% {
+      stroke-dashoffset: 200;
+  }
+  100% {
+      stroke-dashoffset: 0;
+  }
+}
+
+/* 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗶𝘃𝗲 𝗠𝗼𝗱𝗲𝘀 */
+@media (max-width: 992px) {
+  .map-container {
+      height: 85vh;
+      border-radius: 20px;
+  }
+  
+  .nexus-control {
+      bottom: 30px;
+      gap: 15px;
+  }
+  
+  .nexus-btn {
+      padding: 12px 22px;
+      font-size: 13px;
+  }
+  
+  .holo-info {
+      max-width: 280px;
+      padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .map-container {
+      height: 80vh;
+      border-radius: 16px;
+  }
+  
+  .nexus-control {
+      flex-wrap: wrap;
+      justify-content: center;
+      bottom: 20px;
+      gap: 12px;
+  }
+  
+  .nexus-btn {
+      padding: 10px 18px;
+      font-size: 12px;
+  }
+  
+  .holo-info {
+      max-width: 240px;
+      padding: 16px;
+      font-size: 14px;
+  }
+  
+  .quantum-node {
+      width: 30px;
+      height: 30px;
+  }
+}
+
+/* 𝗔𝗥 𝗠𝗼𝗱𝗲 𝗔𝗰𝘁𝗶𝘃𝗮𝘁𝗶𝗼𝗻 */
+.map-container.ar-active {
+  animation:
+      quantum-pulse 3s infinite alternate,
+      hologram-scan 6s linear infinite,
+      ar-glitch 10s infinite;
+  box-shadow:
+      0 0 60px rgba(0,255,224,0.9),
+      0 0 120px rgba(0,180,255,0.7),
+      inset 0 0 50px rgba(0,255,224,0.6),
+      0 0 200px rgba(0,120,255,0.3);
+}
+
+@keyframes ar-glitch {
+  0%, 100% {
+      filter: hue-rotate(0deg);
+  }
+  20% {
+      filter: hue-rotate(5deg) contrast(110%);
+  }
+  40% {
+      filter: hue-rotate(-3deg) brightness(105%);
+  }
+  60% {
+      filter: hue-rotate(2deg) contrast(105%);
+  }
+  80% {
+      filter: hue-rotate(-1deg) brightness(103%);
+  }
+}
+
+/* 𝗡𝗲𝘂𝗿𝗮𝗹 𝗡𝗲𝘁𝘄𝗼𝗿𝗸 𝗢𝘃𝗲𝗿𝗹𝗮𝘆 */
+.neural-network {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+      radial-gradient(circle at 30% 30%, rgba(0,255,224,0.02) 0%, transparent 15%),
+      radial-gradient(circle at 70% 70%, rgba(0,200,255,0.02) 0%, transparent 15%),
+      radial-gradient(circle at 50% 20%, rgba(0,150,255,0.01) 0%, transparent 20%);
+  pointer-events: none;
+  z-index: 6;
+  opacity: 0.5;
+  animation: neural-pulse 15s infinite alternate;
+}
+
+@keyframes neural-pulse {
+  0%, 100% {
+      opacity: 0.3;
+  }
+  50% {
+      opacity: 0.7;
+  }
+}
